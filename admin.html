@@ -7,22 +7,25 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Admin Dashboard</h2>
-        <p>Manage Library Books</p>
+    <div class="container admin-container">
+        <h2>🛠️ Admin Dashboard</h2>
+        <p style="color: #666; margin-bottom: 20px;">Manage Library Books</p>
+        
         <form id="bookForm">
-            <input type="text" id="title" placeholder="Book Title" required>
-            <input type="text" id="author" placeholder="Author" required>
-            <input type="number" id="year" placeholder="Year" required>
-            <button type="submit">Add Book</button>
+            <input type="text" id="title" placeholder="📖 Book Title" required>
+            <input type="text" id="author" placeholder="✍️ Author Name" required>
+            <input type="number" id="year" placeholder="📅 Publication Year" required>
+            <button type="submit">➕ Add Book</button>
         </form>
+
         <div id="bookList">
-            <h3>Book List</h3>
+            <h3 style="color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-top: 30px;">📚 Current Inventory</h3>
             <ul></ul>
         </div>
-        <nav>
-            <a href="landing.html">Back to Landing</a>
-            <a href="index.html">Logout</a>
+
+        <nav style="margin-top: 30px; flex-direction: row; justify-content: space-around;">
+            <a href="landing.html">⬅️ Back to Landing</a>
+            <a href="index.html" style="color: #ff4d4f;">🚪 Logout</a>
         </nav>
     </div>
     <script src="js/app.js"></script>

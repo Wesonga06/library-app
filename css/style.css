@@ -1,59 +1,175 @@
+/* --- GLOBAL STYLES --- */
 body {
-    font-family: Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #f4f4f4;
+    color: #333;
+    background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+    backdrop-filter: blur(6px); 
+    z-index: -1; 
+}
+
+/* --- THE MAIN CARD --- */
 .container {
-    background: white;
-    padding: 20px 30px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
     text-align: center;
-    width: 300px;
+    width: 320px;
+    backdrop-filter: blur(5px);
 }
 
+h2 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+/* --- FORM INPUTS --- */
 input {
     display: block;
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-    box-sizing: border-box; /* Added for better layout handling */
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: #f9f9fc;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
+input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+/* --- BUTTONS --- */
 button {
-    padding: 10px 20px;
-    background-color: #0077cc;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
-    border-radius: 3px;
+    border-radius: 6px;
     cursor: pointer;
-    width: 100%; /* Optional: matches input width */
+    width: 100%;
+    font-weight: bold;
+    font-size: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 button:hover {
-    background-color: #005fa3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
 }
 
-#message {
+button:active {
+    transform: translateY(0);
+}
+
+/* --- MESSAGES & NAVIGATION --- */
+#message, #regMessage {
     margin-top: 15px;
-    color: green;
+    font-weight: 500;
+}
+
+nav {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 nav a {
-    margin: 0 10px;
     text-decoration: none;
-    color: #0077cc;
+    color: #667eea;
     font-weight: bold;
+    font-size: 14px;
+    transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #005fa3;
+    color: #764ba2;
+}
+
+/* --- ADMIN DASHBOARD EXTRAS --- */
+.admin-container {
+    width: 90%;
+    max-width: 500px;
+}
+
+#bookList {
+    text-align: left;
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+#bookList::-webkit-scrollbar {
+    width: 6px;
+}
+#bookList::-webkit-scrollbar-thumb {
+    background-color: rgba(102, 126, 234, 0.5);
+    border-radius: 4px;
+}
+
+#bookList ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#bookList li {
+    background: rgba(255, 255, 255, 0.7);
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 500;
+    border-left: 5px solid #667eea; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+#bookList li:hover {
+    transform: translateX(5px);
+    border-left-color: #764ba2;
+}
+
+#bookList li button {
+    background: #ff4d4f;
+    color: white;
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+    width: auto;
+    margin-left: 15px;
+    box-shadow: 0 2px 4px rgba(255, 77, 79, 0.3);
+}
+
+#bookList li button:hover {
+    background: #d9363e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 77, 79, 0.4);
 }
